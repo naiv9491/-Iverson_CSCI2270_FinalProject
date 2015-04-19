@@ -27,3 +27,6 @@ comments,	enhancements,	and	bug	fixes.
 
 Open	issues/bugs
 List	any	known	bugs	in	the	project,	and	any	open	enhancement	requests.
+
+Project Concept:
+The project will make a linked list class (of say, cities), with methods including add, delete, delete network,print path, convert linked list into vector, sort vector based on data element in each city, then turn the sorted list into a new path of cities.  We are thinking of creating a random list of cities, adding data elements corresponding to travel interests, then reading in the user's travel priorities, and using the public methods to create a new linked list that sets the cities in the order of best to worst travelling destinations for the user.    
