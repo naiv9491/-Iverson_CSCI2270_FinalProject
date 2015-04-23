@@ -6,6 +6,7 @@
 #include "Travel.h"
 
 cout<<"hi"<<endl;
+cout << "Hola" << endl;
 
 using namespace std;
 
