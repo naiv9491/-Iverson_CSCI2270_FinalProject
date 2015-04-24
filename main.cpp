@@ -4,12 +4,13 @@
 # include <cstdlib>
 # include <sstream>
 #include "Travel.h"
-
+/*
 cout<<"hi"<<endl;
 cout << "Hola" << endl;
 cout << "this might work";
 
 cout<<"extra test"<<endl;
+* */
 
 using namespace std;
 
@@ -90,7 +91,7 @@ int main(int argc, char **argv){
 
     if(choice == "s"){
         for(int i = 0; i < 6; i++){
-            if(i = 0){
+            if(i == 0){
                 cout<<"Please rank your preference for NATURE from 1-6"<<endl;
                 //cin<<choice;
 
