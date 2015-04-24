@@ -92,7 +92,27 @@ void removePlace()
 
 void computePlaceScores()
 {
-	
+	int placeScore = 0;
+	/* To compute the user's individual cityScore for each city, we loop through all the cities
+	 * in the linked list and multiply whatever score that city got by the score the user gave as 
+	 * a preferance for that characteristic. For example, a city with a nature score of 10 and a user
+	 * nature score of 10 will contribute 100 points to the cityScore.  If that user gave a nature score 
+	 * of 1, that would only contribute 10 points to that city's cityScore.
+	 * */
+	while(head != NULL)
+	{
+		placeScore += (head.nature * user.nature);
+		placeScore += (head.food * user.food);
+		placeScore += (head.culture * user.culture);
+		placeScore += (head.nightLife * user.nightLife);
+		placeScore += (head.adventure * user.adventure);
+		placeScore += (head.relax * user.relax);
+		head.cityScore = placeScore;
+		
+		placeScore = 0;
+		head = head->next;
+	}
+		
 }
 
 void sortPlaceScores()
