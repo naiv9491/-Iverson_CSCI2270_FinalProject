@@ -47,6 +47,7 @@ class Travel
     protected:
     private:
         placeNode* head;
+        userPref* user;
 };
 
 #endif // TRAVEL_H
