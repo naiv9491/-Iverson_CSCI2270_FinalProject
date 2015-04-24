@@ -41,20 +41,19 @@ int main(int argc, char **argv){
     if (inFile.is_open()) {
         //cout << "File opened successfully!"<<endl;
 
-        //get each line (one at a time with the while loop) and store them as a string called fileLine
+        
         getline(inFile, object);
         while(getline(inFile, fileLine)){
 
-            istringstream iss(fileLine); //what does this do again?
+            istringstream iss(fileLine); 
 
                 //Skip of entire first line. don't do anything here.
 
-            getline(iss, object, ','); //theFile isn't right. could I just store these values in variables to use later when I call my addNewNode function?
+            getline(iss, object, ','); 
                 location = (object);
 
 
             getline(iss, object, ',');
-            cout<<object<<endl;
                 nature = stoi(object); //converting string to int
 
 

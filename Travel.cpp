@@ -43,7 +43,7 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
             cursor = cursor->next;
         }
 
-        cout<<currentNode->location<<"->";
+        //cout<<currentNode->location<<"->";
 
         cursor->next = currentNode;
         //currentNode->previous = cursor;
