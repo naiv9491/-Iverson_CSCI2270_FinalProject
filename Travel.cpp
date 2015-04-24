@@ -46,7 +46,7 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
         cout<<currentNode->location<<"->";
 
         cursor->next = currentNode;
-        currentNode->previous = cursor;
+        //currentNode->previous = cursor;
     }
 
 
@@ -68,5 +68,35 @@ cout<<"6. Relax"<<endl;
 cout<<endl;
 cout<<"Please press the 's' key to rank (from 1 to 6) what you want to see on your trip."<<endl;
 cout<<"Or press 'q' to quit"<<endl;
+}
+
+void displayPlaces()
+{
+	
+}
+
+void reversePlaces()
+{
+	
+}
+
+void addPlace()
+{
+	
+}
+        
+void removePlace()
+{
+	
+}
+
+void computePlaceScores()
+{
+	
+}
+
+void sortPlaceScores()
+{
+	
 }
 
