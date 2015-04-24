@@ -37,6 +37,12 @@ class Travel
 
         void readIn(std::string location, int nature, int food, int culture, int nightLife, int adventure, int relax);
         void displayMenu();
+        void displayPlaces();
+        void reversePlaces();
+        void addPlace();
+        void removePlace();
+        void computePlaceScores();
+        void sortPlaceScores();
 
     protected:
     private:
