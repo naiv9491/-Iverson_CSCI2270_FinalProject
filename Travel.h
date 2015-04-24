@@ -14,12 +14,21 @@ struct placeNode{
     int nightLife;
     int adventure;
     int relax;
-
+	int cityScore;
     placeNode *next = NULL;
-    placeNode *previous = NULL;
+    //placeNode *previous = NULL;
 
 };
 
+struct userPref{
+	int nature;
+    int food;
+    int culture;
+    int nightLife;
+    int adventure;
+    int relax;
+};
+	
 class Travel
 {
     public:
