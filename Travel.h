@@ -4,8 +4,6 @@
 # include <iostream>
 # include <cstring>
 
-//will this work???
-
 
 struct placeNode{
     std::string location;
@@ -38,10 +36,10 @@ class Travel
 
         void readIn(std::string location, int nature, int food, int culture, int nightLife, int adventure, int relax);
         void displayMenu();
-        void displayPlaces();
+        void displayPlaces(placeNode* head);
         void reversePlaces();
-        void addPlace();
-        void removePlace();
+        void addPlace(placeNode* head, std::string newLocation);
+        void removePlace(placeNode* head, std::string toDelete);
         void computePlaceScores();
         void sortPlaceScores();
 

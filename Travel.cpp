@@ -70,9 +70,16 @@ cout<<"Please press the 's' key to rank (from 1 to 6) what you want to see on yo
 cout<<"Or press 'q' to quit"<<endl;
 }
 
-void displayPlaces()
+void displayPlaces(placeNode* head)
 {
-	
+    placeNode* temp = new placeNode;
+    temp = head;
+    while(temp != NULL){
+        cout<<temp->location;
+        cout<<", ";
+        temp=temp->next;
+    }//end while
+       // cout<<" NULL"<<endl;
 }
 
 void reversePlaces()
@@ -80,14 +87,63 @@ void reversePlaces()
 	
 }
 
-void addPlace()
+void addPlace(placeNode* head, string newLocation)
 {
-	
+
+//The original function definition: node* addCity(node* head, string previous, string newCity){
+//should we return the head instead of having a void function? does it help at all?
+
+        placeNode* temp1 = new placeNode;
+        temp1 = head;
+        placeNode* added = new placeNode;
+
+        while(temp1 != NULL){
+           /* if(temp1->cityName == previous){
+                if(temp1->next == NULL){
+                    added->next = NULL;
+                    temp1->next = added;
+                    added->cityName = newCity;
+                    return head;
+                }
+                else{
+                added->next = temp1->next;
+                temp1->next = added;
+                added->cityName = newCity;
+                return head;
+                }
+            }//end if
+*/
+            temp1 = temp1->next;
+        }//end while loop
+        added->next = NULL;
+        temp1->next = added;
+        added->location = newLocation;
+
+        //return head;
 }
         
-void removePlace()
+void removePlace(placeNode* head, string toDelete)
 {
-	
+    placeNode* temp1 = new placeNode;
+    temp1 = head;
+    placeNode* n = new placeNode;
+    n = temp1->next;
+
+    while(n != NULL){
+            if(temp1->location == toDelete){
+                head = n;
+                delete temp1;
+                return;
+            }
+            else if(n->location == toDelete){
+                temp1->next = n->next;
+                delete n;
+                return;
+            }
+
+            temp1 = n;
+            n = n->next;
+        }//end while loop
 }
 
 void computePlaceScores()
