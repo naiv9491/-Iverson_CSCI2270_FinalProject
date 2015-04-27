@@ -55,19 +55,34 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
 }
 
 void Travel::displayMenu(){
+	user = new userPref;
+	
 cout<<"It is time to go on the trip of your lifetime."<<endl;
-cout<<"We will provide a list of locations around the world for you to visit depending on your preferences"<<endl;
-cout<<"You can choose from these qualities:"<<endl;
-cout<<endl;
-cout<<"1. Nature"<<endl;
-cout<<"2. Food"<<endl;
-cout<<"3. Culture/History/Art"<<endl;
-cout<<"4. Night Life"<<endl;
-cout<<"5. Adventure"<<endl;
-cout<<"6. Relax"<<endl;
-cout<<endl;
-cout<<"Please press the 's' key to rank (from 1 to 6) what you want to see on your trip."<<endl;
-cout<<"Or press 'q' to quit"<<endl;
+cout<<"But first, we'll need your travel preferences."<<endl;
+cout<<"Rate each of these qualities from 1-10:\n"<<endl;
+
+int nature, food, culture, night, adventure, relax;
+cout<<"1. Nature: ";
+cin >> nature;
+cout<<"2. Food: ";
+cin >> food;
+cout<<"3. Culture/History/Art: ";
+cin >> culture;
+cout<<"4. Night Life: ";
+cin >> night;
+cout<<"5. Adventure: ";
+cin >> adventure;
+cout<<"6. Relax: ";
+cin >> relax;
+
+user->nature = nature; 
+user->food = food;
+user->culture = culture;
+user->nightLife = night;
+user->adventure = adventure;
+user->relax = relax;
+
+//cout<<"Or press 'q' to quit"<<endl;
 }
 
 void Travel::displayPlaces(placeNode* head)
