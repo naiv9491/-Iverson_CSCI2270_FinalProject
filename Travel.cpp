@@ -6,6 +6,7 @@ using namespace std;
 Travel::Travel()
 {
     head = NULL;
+    user = NULL;
 }
 
 Travel::~Travel()
@@ -85,7 +86,7 @@ user->relax = relax;
 //cout<<"Or press 'q' to quit"<<endl;
 }
 
-void Travel::displayPlaces(placeNode* head)
+void Travel::displayPlaces()
 {
     placeNode* temp = new placeNode;
     temp = head;
@@ -102,14 +103,18 @@ void Travel::reversePlaces()
 	
 }
 
-void Travel::addPlace(placeNode* head, string newLocation)
+void Travel::addPlace()
 {
 
 //The original function definition: node* addCity(node* head, string previous, string newCity){
 //should we return the head instead of having a void function? does it help at all?
-
-        placeNode* temp1 = new placeNode;
-        temp1 = head;
+		string newLocation;
+		cout << "Enter a city to add: ";
+		cin.ignore();
+		getline(cin, newLocation);
+		
+        placeNode* temp1 = head;
+      
         placeNode* added = new placeNode;
 
         while(temp1 != NULL){
@@ -137,10 +142,15 @@ void Travel::addPlace(placeNode* head, string newLocation)
         //return head;
 }
         
-void Travel::removePlace(placeNode* head, string toDelete)
+void Travel::removePlace(placeNode* head, )
 {
-    placeNode* temp1 = new placeNode;
-    temp1 = head;
+    string toDelete;
+    cout << "Enter a city to delete: ";
+    cin.ignore();
+    getline(cin, toDelete);
+    
+    placeNode* temp1 = head;
+    
     placeNode* n = new placeNode;
     n = temp1->next;
 
@@ -223,4 +233,3 @@ void Travel::sortPlaceScores()
 
 	
 }
-
