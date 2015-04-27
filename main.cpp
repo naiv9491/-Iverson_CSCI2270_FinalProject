@@ -83,22 +83,42 @@ int main(int argc, char *argv[]){
     }//end if (file is open)
     inFile.close();
 
-    string choice;
-    places.displayMenu();
-    cin>>choice;
-    //cin>>choice;
+    int choice = 1;
+   
+    while(choice != 0)
+    {
+		cout << "Welcome to to the Travel Program!" << endl;
+		cout << "1. \n" << "2. Show Places\n" << "3. Reverse Places\n"; // need an option for #1
+		cout << "4. Add Place\n" << "5. Remove Place\n" << "6. Show my best places\n" << endl;
+		 
+		cin >> choice;
 
-    if(choice == "s"){
-        for(int i = 0; i < 6; i++){
-            if(i == 0){
-                cout<<"Please rank your preference for NATURE from 1-6"<<endl;
-                //cin<<choice;
-
-            }
-        }
+    if(choice == 1)
+    {
+        
     }
-    else{
-        cout<<"Goodbye!"<<endl;
+    else if(choice == 2)
+    {
+        places.displayPlaces(); 
     }
+    else if(choice == 3)
+    {
+		places.reversePlaces();
+	}
+	else if(choice == 4)
+	{
+		 places.addPlace();
+	}
+	else if(choice == 5)
+	{
+		places.removePlace();
+	}
+	else if(choice == 6)
+	{
+		 places.displayMenu(); 
+		 places.computePlaceScores();
+		 places.sortPlaceScores();
+	}
+}// end of while loop 
     return 0;
-}
+}// end of main
