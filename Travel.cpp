@@ -70,7 +70,7 @@ cout<<"Please press the 's' key to rank (from 1 to 6) what you want to see on yo
 cout<<"Or press 'q' to quit"<<endl;
 }
 
-void displayPlaces(placeNode* head)
+void Travel::displayPlaces(placeNode* head)
 {
     placeNode* temp = new placeNode;
     temp = head;
@@ -82,12 +82,12 @@ void displayPlaces(placeNode* head)
        // cout<<" NULL"<<endl;
 }
 
-void reversePlaces()
+void Travel::reversePlaces()
 {
 	
 }
 
-void addPlace(placeNode* head, string newLocation)
+void Travel::addPlace(placeNode* head, string newLocation)
 {
 
 //The original function definition: node* addCity(node* head, string previous, string newCity){
@@ -122,7 +122,7 @@ void addPlace(placeNode* head, string newLocation)
         //return head;
 }
         
-void removePlace(placeNode* head, string toDelete)
+void Travel::removePlace(placeNode* head, string toDelete)
 {
     placeNode* temp1 = new placeNode;
     temp1 = head;
@@ -146,7 +146,7 @@ void removePlace(placeNode* head, string toDelete)
         }//end while loop
 }
 
-void computePlaceScores()
+void Travel::computePlaceScores()
 {
 	int placeScore = 0;
 	placeNode *temp = head;
@@ -172,7 +172,7 @@ void computePlaceScores()
 		
 }
 
-void sortPlaceScores()
+void Travel::sortPlaceScores()
 {
 	int scoreArr[9];
 	placeNode *temp1 = head;
@@ -181,11 +181,11 @@ void sortPlaceScores()
 	for(int i = 0; i < 10; i++)
 	{
 		scoreArr[i] = temp1->cityScore;
-		temp = temp->next;
+		temp1 = temp1->next;
 	}
 	
 	//beginning of selection sort algorithm
-	int *numbers = scoreArr[0];
+	int *numbers = &scoreArr[0];
 	int arraySize = 10;
     int index;
     for(int i = 1; i < arraySize; i++){
