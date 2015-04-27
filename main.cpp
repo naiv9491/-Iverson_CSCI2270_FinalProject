@@ -4,13 +4,7 @@
 # include <cstdlib>
 # include <sstream>
 #include "Travel.h"
-/*
-cout<<"hi"<<endl;
-cout << "Hola" << endl;
-cout << "this might work";
 
-cout<<"extra test"<<endl;
-* */
 
 using namespace std;
 
@@ -43,7 +37,10 @@ int main(int argc, char *argv[]){
 
         
         getline(inFile, object);
-        while(getline(inFile, fileLine)){
+        for(int i = 0; i < 21; i++)
+        {
+			
+			getline(inFile, fileLine);
 
             istringstream iss(fileLine); 
 
