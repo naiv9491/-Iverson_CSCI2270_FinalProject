@@ -14,7 +14,7 @@ cout<<"extra test"<<endl;
 
 using namespace std;
 
-int main(int argc, char **argv){
+int main(int argc, char *argv[]){
 
     //is this how you create all objects (of a class (like creating a new node))
     Travel places = Travel();
