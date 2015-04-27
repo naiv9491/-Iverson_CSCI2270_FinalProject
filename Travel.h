@@ -36,10 +36,10 @@ class Travel
 
         void readIn(std::string location, int nature, int food, int culture, int nightLife, int adventure, int relax);
         void displayMenu();
-        void displayPlaces(placeNode* head);
+        void displayPlaces();
         void reversePlaces();
-        void addPlace(placeNode* head, std::string newLocation);
-        void removePlace(placeNode* head, std::string toDelete);
+        void addPlace();
+        void removePlace();
         void computePlaceScores();
         void sortPlaceScores();
 
