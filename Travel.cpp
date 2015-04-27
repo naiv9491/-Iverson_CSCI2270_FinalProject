@@ -149,30 +149,63 @@ void removePlace(placeNode* head, string toDelete)
 void computePlaceScores()
 {
 	int placeScore = 0;
+	placeNode *temp = head;
 	/* To compute the user's individual cityScore for each city, we loop through all the cities
 	 * in the linked list and multiply whatever score that city got by the score the user gave as 
 	 * a preferance for that characteristic. For example, a city with a nature score of 10 and a user
 	 * nature score of 10 will contribute 100 points to the cityScore.  If that user gave a nature score 
 	 * of 1, that would only contribute 10 points to that city's cityScore.
 	 * */
-	while(head != NULL)
+	while(temp != NULL)
 	{
-		placeScore += (head.nature * user.nature);
-		placeScore += (head.food * user.food);
-		placeScore += (head.culture * user.culture);
-		placeScore += (head.nightLife * user.nightLife);
-		placeScore += (head.adventure * user.adventure);
-		placeScore += (head.relax * user.relax);
-		head.cityScore = placeScore;
+		placeScore += (temp.nature * user.nature);
+		placeScore += (temp.food * user.food);
+		placeScore += (temp.culture * user.culture);
+		placeScore += (temp.nightLife * user.nightLife);
+		placeScore += (temp.adventure * user.adventure);
+		placeScore += (temp.relax * user.relax);
+		temp.cityScore = placeScore;
 		
 		placeScore = 0;
-		head = head->next;
+		temp = temp->next;
 	}
 		
 }
 
 void sortPlaceScores()
 {
+	int scoreArr[9];
+	placeNode *temp1 = head;
+	
+	//for loop reads scores into an unsorted array
+	for(int i = 0; i < 10; i++)
+	{
+		scoreArr[i] = temp1->cityScore;
+		temp = temp->next;
+	}
+	
+	//beginning of selection sort algorithm
+	int *numbers = scoreArr[0];
+	int arraySize = 10;
+    int index;
+    for(int i = 1; i < arraySize; i++){
+        index = numbers[i];
+        int j = i;
+        while((j > 0) && (numbers[j - 1] > index)){
+            numbers[j] = numbers[j - 1];
+            j = j - 1;
+        }
+        numbers[j] = index;
+    }
+    
+    //now scoreArr is sorted in increasing order
+    //cout the city name followed by its score in decreasing order
+    cout << "Your best cities: " << endl;
+    for(int i = 9; i >= 0; i--)
+    {
+		cout << scoreArr[i].location << ": " << scoreArr[i].cityScore << endl;
+	}
+
 	
 }
 
