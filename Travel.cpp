@@ -142,7 +142,7 @@ void Travel::addPlace()
         //return head;
 }
         
-void Travel::removePlace(placeNode* head, )
+void Travel::removePlace()
 {
     string toDelete;
     cout << "Enter a city to delete: ";
@@ -183,13 +183,13 @@ void Travel::computePlaceScores()
 	 * */
 	while(temp != NULL)
 	{
-		placeScore += (temp.nature * user.nature);
-		placeScore += (temp.food * user.food);
-		placeScore += (temp.culture * user.culture);
-		placeScore += (temp.nightLife * user.nightLife);
-		placeScore += (temp.adventure * user.adventure);
-		placeScore += (temp.relax * user.relax);
-		temp.cityScore = placeScore;
+		placeScore += (temp->nature * user->nature);
+		placeScore += (temp->food * user->food);
+		placeScore += (temp->culture * user->culture);
+		placeScore += (temp->nightLife * user->nightLife);
+		placeScore += (temp->adventure * user->adventure);
+		placeScore += (temp->relax * user->relax);
+		temp->cityScore = placeScore;
 		
 		placeScore = 0;
 		temp = temp->next;
