@@ -80,10 +80,11 @@ int main(int argc, char *argv[]){
     }//end if (file is open)
     inFile.close();
 
-    int choice = 1;
+    int choice = 0;
    
     while(choice != 6)
     {
+		choice = 0;
 		while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)
 		{
 			cout << "Welcome to to the Travel Program!" << endl;
