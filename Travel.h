@@ -48,7 +48,7 @@ class Travel
         void removePlace();
         void computePlaceScores();
         void sortPlaceScores();
-        void selectSortValues(int &sizeOfArray, sortInfo &firstElementofArray);
+        void inserrtionSortValues(int &sizeOfArray, sortInfo &firstElementofArray);
         void quickSortValues(sortInfo *arr, int leftIndex, int rightIndex);
 
     protected:
