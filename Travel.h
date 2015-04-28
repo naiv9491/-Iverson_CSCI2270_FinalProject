@@ -27,6 +27,12 @@ struct userPref{
     int adventure;
     int relax;
 };
+
+struct sortInfo{
+	int score;
+	std::string name;
+};
+
 	
 class Travel
 {
@@ -42,6 +48,8 @@ class Travel
         void removePlace();
         void computePlaceScores();
         void sortPlaceScores();
+        void selectSortValues(int &sizeOfArray, sortInfo &firstElementofArray);
+        void quickSortValues(sortInfo *arr, int leftIndex, int rightIndex);
 
     protected:
     private:
