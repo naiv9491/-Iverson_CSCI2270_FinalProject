@@ -227,47 +227,106 @@ void Travel::computePlaceScores()
 		
 }
 
-//This function takes the computed place score (from previous function) and reorders the linked list from best to worst 
+//This function takes the computed place score (from previous function)
+//and reorders the linked list from best to worst, displaying the top 9 destinations
 void Travel::sortPlaceScores()
 {
-	  struct sortInfo{
-		int score;
-		string name;
-	};
-
-	sortInfo scoreArr[21];
+	sortInfo scoreArr[25]; //I wonder about using a vector here in case we have added/removed cities
 	placeNode *temp1 = head;
-    
+
 	//for loop reads scores into an unsorted array
 	int k = 0;
 	while(temp1 != NULL)
 	{
 		scoreArr[k].score = temp1->cityScore;
+		cout << scoreArr[k].score << " ";
 		scoreArr[k].name = temp1->location;
-		
+		cout << scoreArr[k].name << endl;
+
 		temp1 = temp1->next;
 		k++;
 	}
-
-	//beginning of selection sort algorithm
-	sortInfo *numbers = &scoreArr[0];
-	int arraySize = (k-1);
-    int index;
-    for(int i = 1; i < arraySize; i++){
-        index = numbers[i].score;
-        int j = i;
-        while((j > 0) && (numbers[j - 1].score > index)){
-            numbers[j] = numbers[j - 1];
-            j = j - 1;
-        }
-        numbers[j].score = index;
-    }
+	int answer = 0;
+	while(answer != 1 && answer != 2)
+	{
+		cout << "\n" << "Would you like to: \n" << "1. Sort using insertion sort\n" << "2. Sort using QuickSort\n";
+		cin >> answer;
+	}
+	//choose your own adventure! (a.k.a sorting algorithm)
+	if(answer == 1)
+		insertionSortValues(k, &scoreArr[0]);
+	else if(answer == 2){
+		sortInfo *first = &scoreArr[0];
+		quickSortValues(first, 0, k);
+	}
 
     //now scoreArr is sorted in increasing order
     //cout the city name followed by its score in decreasing order
     cout << "Your best cities: " << endl;
-    for(int i = 9; i >= 0; i--)
+    for(int i = k-1; i > k-10; i--)
     {
 		cout << scoreArr[i].name << ": " << scoreArr[i].score << endl;
 	}
+	cout << "\n";
+}
+
+void Travel::insertionSortValues(int sizeOfArray, sortInfo *firstElementofArray)
+{
+
+	/*//int *numbers, int arraySize){
+    int j;
+    int index;
+
+    for(int i = 1; i < arraySize; i++){
+        index = numbers[i];
+        j = i;
+        while((j > 0) && (numbers[j - 1] > index)){
+            numbers[j] = numbers[j - 1];
+            printArray(&numbers[0], arraySize);
+            j = j - 1;
+        }
+        numbers[j] = index;
+
+    }
+	*/
+
+	sortInfo *numbers = firstElementofArray;
+
+	int arraySize = sizeOfArray;
+    sortInfo index;
+    for(int i = 1; i < arraySize; i++){
+        index = numbers[i];
+        int j = i;
+        while((j > 0) && (numbers[j - 1].score > index.score)){
+            numbers[j] = numbers[j - 1];
+            j = j - 1;
+        }
+        numbers[j] = index;
+    }
+}
+
+void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
+{
+	//int *arr, int left, int right){
+     int i = leftIndex;
+     int j = rightIndex;
+     sortInfo tmp;
+     int pivot = arr[(leftIndex + rightIndex) / 2].score;
+     while(i <= j){
+          while(arr[i].score < pivot)
+               i++;
+          while(arr[j].score > pivot)
+               j--;
+          if(i <= j){
+               tmp = arr[i];
+               arr[i] = arr[j];
+               arr[j] = tmp;
+               i++;
+               j--;
+          }
+     }
+     if (leftIndex < j)
+          quickSortValues(&arr[leftIndex], leftIndex, j);
+     if (i < rightIndex)
+          quickSortValues(&arr[rightIndex], i, rightIndex);
 }
