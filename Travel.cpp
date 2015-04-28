@@ -16,7 +16,7 @@ Travel::~Travel()
 }
 
 //Function reads in values from text file and stores them in a linked list
-//First in main.cpp we loop through each line of the text file called locations.txt and store them in variables, 
+//First in main.cpp we loop through each line of the text file called locations.txt and store them in variables,
 //which are passed to the Travel function below
 void Travel::readIn(string location, int nature, int food, int culture, int nightLife, int adventure, int relax){
 
@@ -24,7 +24,7 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
     if(head == NULL){
         head = new placeNode;
         head->location = location;
-        head->nature = nature; 
+        head->nature = nature;
         head->food = food;
         head->culture = culture;
         head->nightLife = nightLife;
@@ -36,7 +36,7 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
         placeNode* currentNode = new placeNode;
 
         currentNode->location = location;
-        currentNode->nature = nature; 
+        currentNode->nature = nature;
         currentNode->food = food;
         currentNode->culture = culture;
         currentNode->nightLife = nightLife;
@@ -53,11 +53,11 @@ void Travel::readIn(string location, int nature, int food, int culture, int nigh
 
 }
 
-//This is the second menu which is called in option 6. Here, we provide the environmental components for the user to rank.
-//Then we store these rankings in a new pointer called "user". Then we use the "user" pointer in a function later on called computePlaceScores.
+//This is the second menu which is called in option 1. Here, we provide the environmental components for the user to rank.
+//We store these rankings in a new pointer called "user". Then we implement the "user" pointer in a function later on called computePlaceScores.
 void Travel::displayMenu(){
 	user = new userPref;
-	
+
 cout<<"It is time to go on the trip of your lifetime."<<endl;
 cout<<"But first, we'll need your travel preferences."<<endl;
 cout<<"Rate each of these qualities from 1-10:\n"<<endl;
@@ -76,7 +76,7 @@ cin >> adventure;
 cout<<"6. Relax: ";
 cin >> relax;
 
-user->nature = nature; 
+user->nature = nature;
 user->food = food;
 user->culture = culture;
 user->nightLife = night;
@@ -106,8 +106,8 @@ void Travel::reversePlaces()
     placeNode* next;
     while (current != NULL)
     {
-        next  = current->next;  
-        current->next = prev;   
+        next  = current->next;
+        current->next = prev;
         prev = current;
         current = next;
     }
@@ -124,15 +124,17 @@ void Travel::addPlace()
 		int night = 0;
 		int adventure = 0;
 		int relax = 0;
-		
-		
+
+
 		cout << "Enter a city to add: ";
 		cin.ignore();
 		getline(cin, newLocation);
-		
-		cout<<"Please rank the location's environmental components from 1 to 10, 10 being the most representative of the location."<<endl;
-		cout<<"For example, if you added New York City, you would give food and night life a 10, while nature would be closer to a 1"<<endl;
-		
+
+		cout<<"Please rank the location's environmental components from 1 to 10,"<<endl;
+		cout<<"10 being the most representative of the location."<<endl;
+		cout<<"For example, if you added New York City, you would give food and night life a 10,"<<endl;
+		cout<<"while nature would be closer to a 1"<<endl;
+
 		cout<<"1. Nature: ";
 		cin >> nature;
 		cout<<"2. Food: ";
@@ -146,8 +148,8 @@ void Travel::addPlace()
 		cout<<"6. Relax: ";
 		cin >> relax;
 
-		
-		
+
+
         placeNode* temp1 = head;
 
         placeNode* added = new placeNode;
@@ -169,20 +171,20 @@ void Travel::addPlace()
         //return head;
 }
 
-//This function allows the user to remove a location from the list 
+//This function allows the user to remove a location from the list
 void Travel::removePlace()
 {
     string toDelete;
     cout << "Enter a city to delete: ";
     cin.ignore();
     getline(cin, toDelete);
-    
+
     placeNode* temp1 = head;
-    
+
     placeNode* n = new placeNode;
     n = temp1->next;
 
-//Searching for location to delete
+    //searching for location to delete
     while(n != NULL){
             if(temp1->location == toDelete){
                 head = n;
@@ -206,9 +208,9 @@ void Travel::computePlaceScores()
 	int placeScore = 0;
 	placeNode *temp = head;
 	/* To compute the user's individual cityScore for each city, we loop through all the cities
-	 * in the linked list and multiply whatever score that city got by the score the user gave as 
+	 * in the linked list and multiply whatever score that city got by the score the user gave as
 	 * a preferance for that characteristic. For example, a city with a nature score of 10 and a user
-	 * nature score of 10 will contribute 100 points to the cityScore.  If that user gave a nature score 
+	 * nature score of 10 will contribute 100 points to the cityScore.  If that user gave a nature score
 	 * of 1, that would only contribute 10 points to that city's cityScore.
 	 * */
 	while(temp != NULL)
@@ -220,15 +222,14 @@ void Travel::computePlaceScores()
 		placeScore += (temp->adventure * user->adventure);
 		placeScore += (temp->relax * user->relax);
 		temp->cityScore = placeScore;
-		
+
 		placeScore = 0;
 		temp = temp->next;
 	}
-		
+
 }
 
-//This function takes the computed place score (from previous function)
-//and reorders the linked list from best to worst, displaying the top 9 destinations
+//This function uses the computed place score and reorders the linked list from best to worst, displaying the top 9 destinations
 void Travel::sortPlaceScores()
 {
 	sortInfo scoreArr[25]; //I wonder about using a vector here in case we have added/removed cities
@@ -270,6 +271,7 @@ void Travel::sortPlaceScores()
 	cout << "\n";
 }
 
+//Implements the insertion sort algorithm
 void Travel::insertionSortValues(int sizeOfArray, sortInfo *firstElementofArray)
 {
 
@@ -305,6 +307,7 @@ void Travel::insertionSortValues(int sizeOfArray, sortInfo *firstElementofArray)
     }
 }
 
+//Implements the quick sort algorithm
 void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
 {
 	//int *arr, int left, int right){
@@ -330,3 +333,13 @@ void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
      if (i < rightIndex)
           quickSortValues(&arr[rightIndex], i, rightIndex);
 }
+
+
+/*Notes:
+
+Should probably have quickSort and insertionSort before the function we call it in (so codeblocks knows that the functions have been written)
+The & and * in the arguments of the quickSort and insertionSort functions should be modified to match the .h file
+
+
+
+

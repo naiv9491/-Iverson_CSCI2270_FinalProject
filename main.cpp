@@ -31,22 +31,23 @@ int main(int argc, char *argv[]){
     int relax = 0;
 
 
-    //if the file is open
+    //opening the text file
     if (inFile.is_open()) {
-        //cout << "File opened successfully!"<<endl;
 
-        
+
         getline(inFile, object);
         for(int i = 0; i < 21; i++)
         {
-			
+
 			getline(inFile, fileLine);
 
-            istringstream iss(fileLine); 
+            //Reading in first line
+            istringstream iss(fileLine);
 
-                //Skip of entire first line. don't do anything here.
+                //Skip of entire first line. Don't do anything here.
 
-            getline(iss, object, ','); 
+            //Read in all other components of line separated by commas
+            getline(iss, object, ',');
                 location = (object);
 
 
@@ -73,7 +74,7 @@ int main(int argc, char *argv[]){
             getline(iss, object, ',');
                 relax = stoi(object);
 
-            //call function to read in information and store in doubly linked list:
+            //call function to read in information and store in linked list. This is called one line at a time.
             places.readIn(location, nature, food, culture, nightLife, adventure, relax);
 
         }//end while loop
@@ -81,28 +82,28 @@ int main(int argc, char *argv[]){
     inFile.close();
 
     int choice = 0;
-   
+
     while(choice != 6)
     {
 		choice = 0;
 		while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)
 		{
 			cout << "Welcome to to the Travel Program!" << endl;
-			cout << "1. Show my best places\n" << "2. Show Places\n" << "3. Reverse Places\n"; // need an option for #1
+			cout << "1. Show my best places\n" << "2. Show Places\n" << "3. Reverse Places\n";
 			cout << "4. Add Place\n" << "5. Remove Place\n" << "6. Quit " << endl;
-		 
+
 			cin >> choice;
 		}
 
 	if(choice == 1)
 	{
-		places.displayMenu(); 
+		places.displayMenu();
 		places.computePlaceScores();
 		places.sortPlaceScores();
 	}
     else if(choice == 2)
     {
-        places.displayPlaces(); 
+        places.displayPlaces();
     }
     else if(choice == 3)
     {
@@ -116,7 +117,7 @@ int main(int argc, char *argv[]){
 	{
 		places.removePlace();
 	}
-	
-}// end of while loop 
+
+}// end of while loop
     return 0;
 }// end of main
