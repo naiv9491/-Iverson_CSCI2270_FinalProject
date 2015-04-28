@@ -194,37 +194,44 @@ void Travel::computePlaceScores()
 
 void Travel::sortPlaceScores()
 {
-	int scoreArr[9];
+	  struct sortInfo{
+		int score;
+		string name;
+	};
+
+	sortInfo scoreArr[21];
 	placeNode *temp1 = head;
-	
+    
 	//for loop reads scores into an unsorted array
-	for(int i = 0; i < 10; i++)
+	int k = 0;
+	while(temp1 != NULL)
 	{
-		scoreArr[i] = temp1->cityScore;
+		scoreArr[k].score = temp1->cityScore;
+		scoreArr[k].name = temp1->location;
+		
 		temp1 = temp1->next;
+		k++;
 	}
-	
+
 	//beginning of selection sort algorithm
-	int *numbers = &scoreArr[0];
-	int arraySize = 10;
+	sortInfo *numbers = &scoreArr[0];
+	int arraySize = (k-1);
     int index;
     for(int i = 1; i < arraySize; i++){
-        index = numbers[i];
+        index = numbers[i].score;
         int j = i;
-        while((j > 0) && (numbers[j - 1] > index)){
+        while((j > 0) && (numbers[j - 1].score > index)){
             numbers[j] = numbers[j - 1];
             j = j - 1;
         }
-        numbers[j] = index;
+        numbers[j].score = index;
     }
-    
+
     //now scoreArr is sorted in increasing order
     //cout the city name followed by its score in decreasing order
     cout << "Your best cities: " << endl;
     for(int i = 9; i >= 0; i--)
     {
-		cout << scoreArr[i].location << ": " << scoreArr[i].cityScore << endl;
+		cout << scoreArr[i].name << ": " << scoreArr[i].score << endl;
 	}
-
-	
 }
