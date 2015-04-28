@@ -100,7 +100,17 @@ void Travel::displayPlaces()
 
 void Travel::reversePlaces()
 {
-	
+	placeNode* prev   = NULL;
+    placeNode* current = head;
+    placeNode* next;
+    while (current != NULL)
+    {
+        next  = current->next;  
+        current->next = prev;   
+        prev = current;
+        current = next;
+    }
+    head = prev;
 }
 
 void Travel::addPlace()
