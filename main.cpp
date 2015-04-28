@@ -82,18 +82,23 @@ int main(int argc, char *argv[]){
 
     int choice = 1;
    
-    while(choice != 0)
+    while(choice != 6)
     {
-		cout << "Welcome to to the Travel Program!" << endl;
-		cout << "1. \n" << "2. Show Places\n" << "3. Reverse Places\n"; // need an option for #1
-		cout << "4. Add Place\n" << "5. Remove Place\n" << "6. Show my best places\n" << endl;
+		while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)
+		{
+			cout << "Welcome to to the Travel Program!" << endl;
+			cout << "1. Show my best places\n" << "2. Show Places\n" << "3. Reverse Places\n"; // need an option for #1
+			cout << "4. Add Place\n" << "5. Remove Place\n" << "6. Quit " << endl;
 		 
-		cin >> choice;
+			cin >> choice;
+		}
 
-    if(choice == 1)
-    {
-        
-    }
+	if(choice == 1)
+	{
+		places.displayMenu(); 
+		places.computePlaceScores();
+		places.sortPlaceScores();
+	}
     else if(choice == 2)
     {
         places.displayPlaces(); 
@@ -110,12 +115,7 @@ int main(int argc, char *argv[]){
 	{
 		places.removePlace();
 	}
-	else if(choice == 6)
-	{
-		 places.displayMenu(); 
-		 places.computePlaceScores();
-		 places.sortPlaceScores();
-	}
+	
 }// end of while loop 
     return 0;
 }// end of main
