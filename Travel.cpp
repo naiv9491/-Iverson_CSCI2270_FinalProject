@@ -113,44 +113,29 @@ void Travel::reversePlaces()
     head = prev;
 }
 
+
 void Travel::addPlace()
 {
-
-//The original function definition: node* addCity(node* head, string previous, string newCity){
-//should we return the head instead of having a void function? does it help at all?
 		string newLocation;
 		cout << "Enter a city to add: ";
 		cin.ignore();
 		getline(cin, newLocation);
-		
+
         placeNode* temp1 = head;
-      
+
         placeNode* added = new placeNode;
 
-        while(temp1 != NULL){
-           /* if(temp1->cityName == previous){
-                if(temp1->next == NULL){
-                    added->next = NULL;
-                    temp1->next = added;
-                    added->cityName = newCity;
-                    return head;
-                }
-                else{
-                added->next = temp1->next;
-                temp1->next = added;
-                added->cityName = newCity;
-                return head;
-                }
-            }//end if
-*/
+        while(temp1->next != NULL){
             temp1 = temp1->next;
         }//end while loop
-        added->next = NULL;
+
         temp1->next = added;
+        added->next = NULL;
         added->location = newLocation;
 
         //return head;
 }
+
         
 void Travel::removePlace()
 {
