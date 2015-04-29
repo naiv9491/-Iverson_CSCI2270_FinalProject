@@ -1,0 +1,41 @@
+The public methods:
+
+        void readIn(std::string location, int nature, int food, int culture, int nightLife, int adventure, int relax); 
+        This method is implemented when we read in the text file of locations. As one line at a time is read in, this method is called 
+        and takes in the strings and integers found within each line of the text file and stores these  values to a node, 
+        which is then stored in a linked list.
+        
+        void displayMenu();
+        This method displays a second menu that the user calls when they choose option 1. It will ask the user to rank
+        what they want to see on their trip from 1 to 10 (10 being they really want to see it). The categories consist of 
+        nature, food, culuter, night life, adventure, and relax.
+        
+        void displayPlaces();
+        This method simply prints out the linked list of locations.
+        
+        void reversePlaces();
+        This method reverses the linked list of locations.
+        
+        void addPlace();
+        This method asks the user to input a new location and rank it. The the function will add the location to the linked list of locations.
+        
+        void removePlace();
+        This method asks the user what location they wish to remove from the linked list.
+        
+        void computePlaceScores();
+        This method takes the user's rankings that were obtained when they called the displayMenu function and computes a score 
+        that produces the best locations that the user should visit.
+        
+        void sortPlaceScores();
+        This method takes the computed scores from the method above and sorts the linked list of locations to display the 
+        top ranked locations for the user to visit in order from best to worst. The method calls either the insertion sort algorithm 
+        or the quick sort algorithm to sort the linked list.
+        
+        void insertionSortValues(int &sizeOfArray, sortInfo &firstElementofArray);
+        The insertion sort method takes in the size of the array and the first pointer in that array.
+        
+        void quickSortValues(sortInfo *arr, int leftIndex, int rightIndex);
+        The quick sort method takes in a pointer of the struct called sortInfo and two integers (left and rightmost indices of an array created 
+        in the sortPlaceScores method that contains the scores of each location).
+        
+  
