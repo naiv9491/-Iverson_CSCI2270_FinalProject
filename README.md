@@ -14,9 +14,8 @@ Lastly, our program provides an option to sort the locations in order of prefere
 How to Run:
 To run, simply download the locations.txt file that contains the places to visit and the .h, .cpp, and main files. Like with all recent homework assignments, call the project in the terminal with "Name of project you save it as" "locations.txt".
 
-PROJECT DOCUMENTATION LINK HERE: 
-You should also include a link here to the project documentation that you will provide in
-a separate file.
+Project documentation link:
+https://github.com/naiv9491/Iverson_CSCI2270_FinalProject/blob/master/Documentation
 
 
 Dependencies: 
@@ -28,12 +27,11 @@ There are no additional systemm requirements to run this code.
 
 
 Group Members:
-Naomi Iverson
-Jason Hill
+Naomi Iverson, Jason Hill
 
 
 Contributors:
 
 
 Open issues/bugs List any known bugs in the project, and any open enhancement requests:
-
+We are having some issues with our quickSort function.
