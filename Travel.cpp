@@ -340,6 +340,7 @@ void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
 Should probably have quickSort and insertionSort before the function we call it in (so codeblocks knows that the functions have been written)
 The & and * in the arguments of the quickSort and insertionSort functions should be modified to match the .h file
 
+*/
 
 
 
