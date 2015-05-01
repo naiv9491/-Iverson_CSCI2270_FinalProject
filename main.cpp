@@ -88,9 +88,11 @@ int main(int argc, char *argv[]){
 		choice = 0;
 		while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6)
 		{
+			cout << "=================================\n";
 			cout << "Welcome to to the Travel Program!" << endl;
 			cout << "1. Show my best places\n" << "2. Show Places\n" << "3. Reverse Places\n";
 			cout << "4. Add Place\n" << "5. Remove Place\n" << "6. Quit " << endl;
+			cout << "=============\n";
 
 			cin >> choice;
 		}
