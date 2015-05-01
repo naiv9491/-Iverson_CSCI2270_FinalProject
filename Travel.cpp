@@ -90,12 +90,13 @@ void Travel::displayPlaces()
 {
     placeNode* temp = new placeNode;
     temp = head;
-    while(temp != NULL){
-        cout<<temp->location;
-        cout<<", ";
+    while(temp->next != NULL){
+        cout << temp->location;
+        cout<<" -> ";
         temp=temp->next;
     }//end while
-       // cout<<" NULL"<<endl;
+    cout << temp->location;
+    cout << endl;
 }
 
 //We reverse the linked list here. Therefore, when you call the displayPlaces function again, it will print the locations in reverse order.
@@ -237,17 +238,21 @@ void Travel::sortPlaceScores()
 
 	//for loop reads scores into an unsorted array
 	int k = 0;
+	cout << endl;
+	cout << "=========================================================================\n";
+	cout << "These are the cities on are list and your personal travel scores for them.\n";
+	cout << "The higher the score, the more you want to go there.\n";
 	while(temp1 != NULL)
 	{
-		scoreArr[k].score = temp1->cityScore;
-		cout << scoreArr[k].score << " ";
 		scoreArr[k].name = temp1->location;
-		cout << scoreArr[k].name << endl;
-
+		cout << scoreArr[k].name << " : ";
+        scoreArr[k].score = temp1->cityScore;
+		cout << scoreArr[k].score << endl;
 		temp1 = temp1->next;
 		k++;
 	}
 	int answer = 0;
+	cout << "==================================\n";
 	while(answer != 1 && answer != 2)
 	{
 		cout << "\n" << "Would you like to: \n" << "1. Sort using insertion sort\n" << "2. Sort using QuickSort\n";
@@ -263,35 +268,17 @@ void Travel::sortPlaceScores()
 
     //now scoreArr is sorted in increasing order
     //cout the city name followed by its score in decreasing order
-    cout << "Your best cities: " << endl;
+    cout << "===============================\n";
+    cout << "Your top 10 cities on our list: " << endl;
     for(int i = k-1; i > k-10; i--)
     {
 		cout << scoreArr[i].name << ": " << scoreArr[i].score << endl;
 	}
-	cout << "\n";
 }
 
 //Implements the insertion sort algorithm
 void Travel::insertionSortValues(int sizeOfArray, sortInfo *firstElementofArray)
 {
-
-	/*//int *numbers, int arraySize){
-    int j;
-    int index;
-
-    for(int i = 1; i < arraySize; i++){
-        index = numbers[i];
-        j = i;
-        while((j > 0) && (numbers[j - 1] > index)){
-            numbers[j] = numbers[j - 1];
-            printArray(&numbers[0], arraySize);
-            j = j - 1;
-        }
-        numbers[j] = index;
-
-    }
-	*/
-
 	sortInfo *numbers = firstElementofArray;
 
 	int arraySize = sizeOfArray;
@@ -314,7 +301,7 @@ void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
      int i = leftIndex;
      int j = rightIndex;
      sortInfo tmp;
-     int pivot = arr[(leftIndex + rightIndex) / 2].score;
+     int pivot = arr[(i + j) / 2].score;
      while(i <= j){
           while(arr[i].score < pivot)
                i++;
@@ -329,9 +316,9 @@ void Travel::quickSortValues(sortInfo *arr, int leftIndex, int rightIndex)
           }
      }
      if (leftIndex < j)
-          quickSortValues(&arr[leftIndex], leftIndex, j);
+          quickSortValues(arr, leftIndex, j);
      if (i < rightIndex)
-          quickSortValues(&arr[rightIndex], i, rightIndex);
+          quickSortValues(arr, i, rightIndex);
 }
 
 
@@ -341,6 +328,3 @@ Should probably have quickSort and insertionSort before the function we call it 
 The & and * in the arguments of the quickSort and insertionSort functions should be modified to match the .h file
 
 */
-
-
-
