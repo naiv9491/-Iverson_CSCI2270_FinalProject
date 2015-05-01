@@ -1,4 +1,4 @@
-Location, Nature, Food, Art/Culter/History, Night Life, Adventure, Relax
+Location, Nature, Food, Art/Culture/History, Night Life, Adventure, Relax
 Machu Picchu (Peru), 9, 3, 10, 1, 9, 2
 Christchurch (New Zealand), 10, 5, 6, 3, 8, 4
 Madrid (Spain), 2, 10, 10, 10, 3, 3
